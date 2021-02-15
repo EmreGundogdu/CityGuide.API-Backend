@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using SehirRehberi.API.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +11,22 @@ namespace SehirRehberi.API.Controllers
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
-        [HttpGet]
-        public IEnumerable<string> Get()
+        DataContext _contex;
+        public ValuesController(DataContext context)
         {
-            return new string[] { "value1", "value2" };
+            _contex = context;
+        }
+        [HttpGet]
+        public async Task<ActionResult> GetValues()
+        {
+            var values = await _contex.Values.ToListAsync();
+            return Ok(values);
         }
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<ActionResult> Get(int id)
         {
-            return "value";
+            var value = await _contex.Values.FirstOrDefaultAsync(v=>v.Id == id);
+            return Ok(value);
         }
         [HttpPost]
         public void Post([FromBody]string value)
