@@ -15,7 +15,7 @@ namespace SehirRehberi.API.Models
         public bool IsMain { get; set; }
         public string PublicId { get; set; }
 
-        public List<City> City { get; set; } // fotoğrafın hangi şehire ait olduğu özelliği
+        public City City { get; set; } // fotoğrafın hangi şehire ait olduğu özelliği
 
     }
 }

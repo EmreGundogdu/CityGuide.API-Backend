@@ -27,7 +27,7 @@ namespace SehirRehberi.API.Data
 
         public List<City> GetCities()
         {
-            var cities = _context.Cities.Include(c => c.Photos).ToList();//include metodu bize photoları da vt'den çekecektir
+            var cities = _context.Cities.Include(c => c.Photos).ToList(); //include metodu bize photoları da vt'den çekecektir
             return cities;
                         
         }
