@@ -9,7 +9,7 @@ namespace SehirRehberi.API.Models
     {
         public User()
         {
-            Cities = new List<City>(); // kullanıcının gezdiği veya şehileri var
+            Cities = new List<City>(); // kullanıcının şehirleri var
         }
         public int Id { get; set; }
         public string UserName { get; set; }
