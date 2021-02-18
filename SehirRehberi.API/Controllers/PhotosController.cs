@@ -78,5 +78,12 @@ namespace SehirRehberi.API.Controllers
             }
             return BadRequest("Couldnt add the photo!");
         }
+        [HttpGet("",Name ="GetPhoto")]
+        public IActionResult GetPhoto(int id)
+        {
+            var photoFromDb = _appRepository.GetPhoto(id);
+            var photo = _mapper.Map<PhotoForReturnDto>(photoFromDb);
+            return Ok(photo);
+        }
     }
 }
