@@ -38,6 +38,7 @@ namespace SehirRehberi.API
             services.AddControllers();
             services.AddCors();
             services.AddScoped<IAppRepository, AppRepository>();
+            services.AddScoped<IAuthRepository, AuthRepoistory>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
             {
                 opt.TokenValidationParameters = new TokenValidationParameters
