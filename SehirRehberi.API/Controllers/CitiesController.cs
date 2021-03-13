@@ -39,11 +39,11 @@ namespace SehirRehberi.API.Controllers
         }
         [HttpGet]
         [Route("detail")]
-        public IActionResult GetCityById(int id)
+        public ActionResult GetCityById(int id)
         {
             var city = _appRepository.GetCityById(id);
-            var citiesToReturn = _mapper.Map<CityForDetailDto>(city);
-            return Ok(citiesToReturn);
+            var cityToReturn = _mapper.Map<CityForDetailDto>(city);
+            return Ok(cityToReturn);
         }
         [HttpGet]
         [Route("photos")]

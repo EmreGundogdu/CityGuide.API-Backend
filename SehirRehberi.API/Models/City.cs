@@ -12,10 +12,9 @@ namespace SehirRehberi.API.Models
             Photos = new List<Photo>(); // şehirlerin fotoğrafları var 
         }
         public int Id { get; set; }
-        public int UserId { get; set; }
-        public string Name { get; set; }
         public string Description { get; set; }
-
+        public string Name { get; set; }        
+        public int UserId { get; set; }
         public List<Photo> Photos { get; set; }
         public User User { get; set; } //şehirlerin ekleyeni yani kullanıcısı var
 
